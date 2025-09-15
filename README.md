@@ -16,7 +16,6 @@ You can play **1–10 rounds** against the computer, with results shown after ea
 ### Purpose
 This project is designed for practicing **C++ fundamentals**, including:
 - Enums  
-- Structs  
 - Loops & Conditions  
 - Functions  
 - Random number generation  
