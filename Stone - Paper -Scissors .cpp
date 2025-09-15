@@ -2,11 +2,11 @@
 #include <cstdlib>
 using namespace std;
 enum enGamechoice {
-    Stone = 1,
-    Paper = 2,
+    Stone =1,
+    Paper=2,
     Scissors = 3
 };
-enum enWinner { Player = 1, Computer = 2, Draw = 3 };
+enum enWinner{Player=1,Computer=2,Draw=3};
 int RandomNumber(int From, int To) {
     int Random = rand() % (To - From + 1) + From;
     return Random;
@@ -41,11 +41,11 @@ string ChoiceToString(enGamechoice choice) {
 enWinner WhoWin(enGamechoice Player, enGamechoice Computer) {
     if (Player == Computer)
         return enWinner::Draw;
-    if ((Player == Stone && Computer == Scissors) ||
+   if  ((Player == Stone && Computer == Scissors) ||
         (Player == Paper && Computer == Stone) ||
         (Player == Scissors && Computer == Paper))
         return enWinner::Player;
-    return enWinner::Computer;
+   return enWinner::Computer;
 }
 string WinnerToString(enWinner W) {
     switch (W) {
@@ -56,13 +56,13 @@ string WinnerToString(enWinner W) {
     }
 }
 void SetColor(enWinner W) {
-    if (W == Player) system("color 2F");
+    if (W == Player) system("color 2F");     
     else if (W == Computer) system("color 4F");
-    else system("color 6F");
+    else system("color 6F");                   
 }
 
 void ResetColor() {
-    system("color 07");
+    system("color 07"); 
 }
 void ShowFinalStatistics(int PlayerWins, int ComputerWins, int Draws, int Rounds) {
     cout << "\n=== Final Statistics ===\n";
@@ -83,12 +83,12 @@ void PlayGame() {
     int PlayerWins = 0, ComputerWins = 0, Draws = 0;
     int Rounds = NumberOfRounds();
     for (int i = 1; i < Rounds; i++) {
-        cout << "\nRound [" << i << "] begins:";
-        enGamechoice PlayerChoice = ReadPlayerChoice();
+        cout << "\nRound [" << i << "] begins:" << endl;
+        enGamechoice PlayerChoice=ReadPlayerChoice();
         enGamechoice ComputerChoice = GetComputerChoice();
         cout << "Player Choice:" << PlayerChoice << endl;
         cout << "Computer Choice:" << ComputerChoice << endl;
-        enWinner Result = WhoWin(PlayerChoice, ComputerChoice);
+        enWinner Result = WhoWin(PlayerChoice,ComputerChoice);
         SetColor(Result);
         cout << "Round Winner: " << WinnerToString(Result);
         if (Result == Player) PlayerWins++;
